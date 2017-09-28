@@ -12,6 +12,6 @@ class SocialPost extends Model
      */
     public function federalLegislator()
     {
-        return $this->belongsTo('App\Models\FederalLegislator');
+        return $this->belongsTo('App\Models\FederalLegislator','owner_id','id');
     }
 }

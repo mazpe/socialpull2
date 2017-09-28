@@ -3,17 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\SocialPost;
-use Illuminate\Http\Request;
 
 class SocialPostsController extends Controller
 {
     /**
-     *  Display streams
+     * Display all posts stream
      */
     public function index()
     {
+        // get all social media posts
         $socialposts = SocialPost::all();
 
+        // return view with socialposts
         return view('socialpost/index')->with('socialposts', $socialposts);
     }
 }
