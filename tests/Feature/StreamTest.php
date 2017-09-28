@@ -14,7 +14,7 @@ class StreamTest extends TestCase
      */
     public function testStreamEndpointTest()
     {
-        $response = $this->get('/stream');
+        $response = $this->get('/socialposts');
 
         $response->assertStatus(200);
     }
