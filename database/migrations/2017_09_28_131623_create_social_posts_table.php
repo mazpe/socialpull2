@@ -17,12 +17,16 @@ class CreateSocialPostsTable extends Migration
             $table->increments('id');
             $table->integer('owner_id');
             $table->string('reference_table');
-            $table->string('caption');
+            $table->string('source');
+            $table->string('post_id');
+            $table->string('type');
             $table->string('link');
-            $table->string('post_type');
+            $table->string('caption');
             $table->dateTime('created_time');
-            $table->text('payload');
+            $table->text('payload')->nullable();
             $table->timestamps();
+
+            $table->index(['owner_id','reference_table','source','type','created_time']);
         });
     }
 

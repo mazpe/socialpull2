@@ -3,18 +3,13 @@
 use Faker\Generator as Faker;
 
 $factory->define(App\Models\FederalLegislator::class, function (Faker $faker) {
-    // Generate a random 15 character string to be utilize as facebook id
-    $i = 0;
-    $facebook_id = mt_rand(1,9);
-    do {
-        $facebook_id .= mt_rand(0, 9);
-    } while(++$i < 14);
-    //
+    // if a larger random number is required (32 bit limitation)
+    // $facebook_id = substr(str_shuffle(str_repeat("0123456789", 15)), 0, 15);
 
     return [
         'first_name' => $faker->firstName,
         'last_name' => $faker->lastName,
-        'facebook_id' => $facebook_id,
+        'facebook_id' => $faker->unique()->randomNumber(9),
         'twitter_username' => $faker->unique()->userName,
     ];
 });

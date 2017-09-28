@@ -20,6 +20,8 @@ class CreateFederalLegislatorsTable extends Migration
             $table->string('facebook_id');
             $table->string('twitter_username');
             $table->timestamps();
+
+            $table->index(['first_name','last_name','facebook_id','twitter_username']);
         });
     }
 
